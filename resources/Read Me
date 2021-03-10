@@ -1,0 +1,47 @@
+Model Design:
+We Started out with an interface and class that Implements that interface.
+Our Model interface includes methods to mutate our Shapes and produce text of the change that
+happened to the shape at a tick. We added in fields that our model impl iterates through when going
+through the implementation methods. To define Shape we added in a Abstract class Shape,
+initializing its fields and methods to mutate the Shapes fields based on the type of animation
+the model called upon. Within our abstract class we created subclasses which allowed us to create a
+variety of Shapes within our list of shapes in our model impl.
+
+
+Changes made HW 6:
+In our model interface :
+- added methods that would add and remove shapes, as well as add and remove moves made
+- added get methods for our Shapes and list of Moves
+- added a method animate which iterates all of our moves and animates them
+In our model Implementation:
+-  added fields Canvas, and a list of Moves to iterate through
+-  added builder class that constructs a new model impl specifically usable for our view.
+
+Added a new Class Move
+- added many constructors to determine which type of move our model calls
+- added constrcutors used for our builder, in the builder it then converts it to one of the main
+constructors in Move (the one that tells what model its on)
+- added fields that show the shapes parameters after that move is called
+- added getMethods for our fields
+
+View Package
+- added in a view Interface with methods that all of our View implementation uses
+- added in 3 classes that implements our View (text, visual, svg)
+- within each class we displayed an appropriate version of what that view is supposed to represent
+- in our main method we pulled all the information from our builder, created arguments for our
+commands and made sure that the program outputs the correct view.
+
+Changes made HW7:
+- Class visualHelp - added a second constructor that only instantiated
+the objects and did not start the timer.
+- Class FactoryView, we added the option to create an EditorView if the string is "edit"
+- Created class EditorView which creates an EditorHelp object that extends VisualHelp.
+ It has similar methods to VisualHelp, but there are buttons that do the specified tasks.
+- Added methods to add and remove keyframe in our model, wrote implementation in our model impl.
+- added a field boolean isKeyFrame in our Move class, this is so we can differentiate whether the
+move in our list of moves is defined by a keyframe or not, reduces the complexity of creating an
+entire class based on keyframes only.
+- Created input method to our EditorHelper and added a command function
+- input method can take in a variety of commands to add/delete/modify shapes or keyframes.
+- provided a screenshot of buildings.txt with our user interface shown, in the screenshot we can see
+that we removed a shape in the image.
